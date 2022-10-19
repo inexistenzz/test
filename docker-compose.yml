@@ -1,0 +1,17 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:local
+    container_name: nginx
+    ports: 
+      - "8181:80"
+    networks:
+      - internal
+  php:
+    image: php-fpm:local
+    container_name: php-fpm
+    networks:
+      - internal
+networks:
+  internal:
+    driver: bridge
